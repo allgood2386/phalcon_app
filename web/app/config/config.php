@@ -9,7 +9,7 @@ return new \Phalcon\Config(array(
         'host'        => 'localhost',
         'username'    => 'root',
         'password'    => 'root',
-        'dbname'      => 'test',
+        'dbname'      => 'phalconapp',
         'charset'     => 'utf8',
     ),
     'application' => array(
