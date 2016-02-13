@@ -7,36 +7,35 @@ use Phalcon\Di\FactoryDefault;
 use Phalcon\Mvc\Url as UrlProvider;
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 
+error_reporting(E_ALL);
+
+define('APP_PATH', realpath('..'));
+
 try {
 
-    // Register an autoloader
-    $loader = new Loader();
-    $loader->registerDirs(array(
-      '../app/controllers/',
-      '../app/models/'
-    ))->register();
+    /**
+     * Read the configuration
+     */
+    $config = include APP_PATH . "/app/config/config.php";
 
-    // Create a DI
-    $di = new FactoryDefault();
+    /**
+     * Read auto-loader
+     */
+    include APP_PATH . "/app/config/loader.php";
 
-    // Setup the view component
-    $di->set('view', function () {
-        $view = new View();
-        $view->setViewsDir('../app/views/');
-        return $view;
-    });
+    /**
+     * Read services
+     */
+    include APP_PATH . "/app/config/services.php";
 
-    $di->set('url', function () {
-        $url = new UrlProvider();
-        $url->setBaseUri('/');
-        return $url;
-    });
-
-    // Handle the request
-    $application = new Application($di);
+    /**
+     * Handle the request
+     */
+    $application = new \Phalcon\Mvc\Application($di);
 
     echo $application->handle()->getContent();
 
 } catch (\Exception $e) {
-    echo "Exception: ", $e->getMessage();
+    echo $e->getMessage() . '<br>';
+    echo '<pre>' . $e->getTraceAsString() . '</pre>';
 }

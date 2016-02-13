@@ -1,12 +1,7 @@
-## Assumptions
-Ansible, Vagrant on installed host machine.
-Also hosts-updater for vagrant is installed.
+## Requirements
+Phalcon Dev-Tools 2.0.9
+php5.6
 
-``` vagrant plugin install vagrant-hostsupdater ```
-
-## Setup
-```  
-$ cd /path/to/project
-$ ansible-galaxy install -r build/requirements.yml
-$ vagrant up
-```
+## Usage
+    cd phalcon_app/web
+    php -S localhost:8000 -t public/ .htrouter.php
