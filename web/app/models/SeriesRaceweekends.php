@@ -1,6 +1,6 @@
 <?php
 
-class Users extends \Phalcon\Mvc\Model
+class SeriesRaceweekends extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -11,15 +11,21 @@ class Users extends \Phalcon\Mvc\Model
 
     /**
      *
-     * @var string
+     * @var integer
      */
-    public $name;
+    public $raceweekends_id;
 
     /**
      *
      * @var string
      */
-    public $mail;
+    public $series_id;
+
+    public function initialize()
+    {
+        $this->belongsTo("series_id", "Series", "id");
+        $this->belongsTo("raceweekend_id", "Raceweekends", "id");
+    }
 
     /**
      * Returns table name mapped in the model.
@@ -28,14 +34,14 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'users';
+        return 'series_raceweekends';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Users[]
+     * @return SeriesRaceweekends[]
      */
     public static function find($parameters = null)
     {
@@ -46,7 +52,7 @@ class Users extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Users
+     * @return SeriesRaceweekends
      */
     public static function findFirst($parameters = null)
     {

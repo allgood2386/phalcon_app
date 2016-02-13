@@ -5,6 +5,8 @@
 ?>
 
 <?php use Phalcon\Tag; ?>
+<?php $this->assets->outputJs() ?>
+<?php $this->assets->outputCss() ?>
 
 <div class="row">
     <nav>
@@ -67,3 +69,10 @@
         </nav>
     </div>
 </div>
+<script type="text/javascript">
+    $(function () {
+        $('input[type=datetime]').datetimepicker({
+            format: 'YYYY-MM-DD hh:mm:ss'
+        });
+    });
+</script>

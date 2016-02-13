@@ -3,19 +3,18 @@
  * @var \Phalcon\Mvc\View\Engine\Php $this
  */
 ?>
-<?php $this->assets->outputJs() ?>
-<?php $this->assets->outputCss() ?>
+
 <div class="row">
     <nav>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("series", "Go Back")) ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array("raceWeekends", "Go Back")) ?></li>
         </ul>
     </nav>
 </div>
 
 <div class="page-header">
     <h1>
-        Create series
+        Create raceWeekends
     </h1>
 </div>
 
@@ -24,7 +23,7 @@
 <?php
     echo $this->tag->form(
         array(
-            "series/create",
+            "raceWeekends/create",
             "autocomplete" => "off",
             "class" => "form-horizontal"
         )
@@ -39,16 +38,23 @@
 </div>
 
 <div class="form-group">
+    <label for="fieldLocation" class="col-sm-2 control-label">Location</label>
+    <div class="col-sm-10">
+        <?php echo $this->tag->textField(array("location", "size" => 30, "class" => "form-control", "id" => "fieldLocation")) ?>
+    </div>
+</div>
+
+<div class="form-group">
     <label for="fieldStart" class="col-sm-2 control-label">Start</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->dateTimeField(array("start", "size" => 30, "class" => "form-control", "id" => "fieldStart")) ?>
+        <?php echo $this->tag->textField(array("start", "size" => 30, "class" => "form-control", "id" => "fieldStart")) ?>
     </div>
 </div>
 
 <div class="form-group">
     <label for="fieldEnd" class="col-sm-2 control-label">End</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->dateTimeField(array("end", "size" => 30, "class" => "form-control", "id" => "fieldEnd")) ?>
+        <?php echo $this->tag->textField(array("end", "size" => 30, "class" => "form-control", "id" => "fieldEnd")) ?>
     </div>
 </div>
 
@@ -60,10 +66,3 @@
 </div>
 
 <?php echo $this->tag->endForm(); ?>
-<script type="text/javascript">
-    $(function () {
-        $('input[type=datetime]').datetimepicker({
-            format: 'YYYY-MM-DD hh:mm:ss'
-        });
-    });
-</script>

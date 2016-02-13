@@ -15,18 +15,10 @@ class Series extends \Phalcon\Mvc\Model
      */
     public $name;
 
-    /**
-     *
-     * @var string
-     */
-    public $start;
-
-    /**
-     *
-     * @var string
-     */
-    public $end;
-
+    public function initialize()
+    {
+        $this->hasMany("id", "SeriesRaceWeekends", "raceweekends_id");
+    }
     /**
      * Returns table name mapped in the model.
      *

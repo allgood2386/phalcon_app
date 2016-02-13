@@ -1,6 +1,6 @@
 <?php
 
-class Users extends \Phalcon\Mvc\Model
+class Races extends \Phalcon\Mvc\Model
 {
 
     /**
@@ -13,13 +13,19 @@ class Users extends \Phalcon\Mvc\Model
      *
      * @var string
      */
-    public $name;
+    public $track;
 
     /**
      *
      * @var string
      */
-    public $mail;
+    public $laps;
+
+    /**
+     *
+     * @var string
+     */
+    public $distance;
 
     /**
      * Returns table name mapped in the model.
@@ -28,14 +34,14 @@ class Users extends \Phalcon\Mvc\Model
      */
     public function getSource()
     {
-        return 'users';
+        return 'races';
     }
 
     /**
      * Allows to query a set of records that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Users[]
+     * @return Races[]
      */
     public static function find($parameters = null)
     {
@@ -46,7 +52,7 @@ class Users extends \Phalcon\Mvc\Model
      * Allows to query the first record that match the specified conditions
      *
      * @param mixed $parameters
-     * @return Users
+     * @return Races
      */
     public static function findFirst($parameters = null)
     {
