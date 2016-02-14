@@ -15,19 +15,22 @@ class Series extends \Phalcon\Mvc\Model
      */
     public $name;
 
+    /**
+     *
+     * @var string
+     */
+    public $start;
+
+    /**
+     *
+     * @var string
+     */
+    public $end;
+
+
     public function initialize()
     {
         $this->hasMany("id", "Raceweekends", "series_id");
-    }
-
-    /**
-     * Returns table name mapped in the model.
-     *
-     * @return string
-     */
-    public function getSource()
-    {
-        return 'series';
     }
 
     /**
@@ -50,6 +53,16 @@ class Series extends \Phalcon\Mvc\Model
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'series';
     }
 
 }

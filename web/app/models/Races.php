@@ -28,17 +28,30 @@ class Races extends \Phalcon\Mvc\Model
     public $distance;
 
     /**
+     *
+     * @var string
+     */
+    public $start;
+
+    /**
+     *
+     * @var string
+     */
+    public $end;
+
+    /**
+     *
+     * @var integer
+     */
+    public $raceweekends_id;
+
+    /**
      * Returns table name mapped in the model.
      *
      * @return string
      */
-
     public function initialize() {
         $this->belongsTo("raceweekends_id", "Raceweekends", "id");
-    }
-    public function getSource()
-    {
-        return 'races';
     }
 
     /**
@@ -61,6 +74,16 @@ class Races extends \Phalcon\Mvc\Model
     public static function findFirst($parameters = null)
     {
         return parent::findFirst($parameters);
+    }
+
+    /**
+     * Returns table name mapped in the model.
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return 'races';
     }
 
 }
