@@ -9,8 +9,8 @@
 <div class="row">
     <nav>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("raceWeekends/index", "Go Back")); ?></li>
-            <li class="next"><?php echo $this->tag->linkTo(array("raceWeekends/new", "Create ")); ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array("raceweekends/index", "Go Back")); ?></li>
+            <li class="next"><?php echo $this->tag->linkTo(array("raceweekends/new", "Create ")); ?></li>
         </ul>
     </nav>
 </div>
@@ -30,22 +30,24 @@
             <th>Location</th>
             <th>Start</th>
             <th>End</th>
+            <th>Series</th>
 
                 <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-        <?php foreach ($page->items as $raceWeekend): ?>
+        <?php foreach ($page->items as $raceweekend): ?>
             <tr>
-                <td><?php echo $raceWeekend->id ?></td>
-            <td><?php echo $raceWeekend->name ?></td>
-            <td><?php echo $raceWeekend->location ?></td>
-            <td><?php echo $raceWeekend->start ?></td>
-            <td><?php echo $raceWeekend->end ?></td>
+                <td><?php echo $raceweekend->id ?></td>
+            <td><?php echo $raceweekend->name ?></td>
+            <td><?php echo $raceweekend->location ?></td>
+            <td><?php echo $raceweekend->start ?></td>
+            <td><?php echo $raceweekend->end ?></td>
+            <td><?php echo $raceweekend->series_id ?></td>
 
-                <td><?php echo $this->tag->linkTo(array("raceWeekends/edit/" . $raceWeekend->id, "Edit")); ?></td>
-                <td><?php echo $this->tag->linkTo(array("raceWeekends/delete/" . $raceWeekend->id, "Delete")); ?></td>
+                <td><?php echo $this->tag->linkTo(array("raceweekends/edit/" . $raceweekend->id, "Edit")); ?></td>
+                <td><?php echo $this->tag->linkTo(array("raceweekends/delete/" . $raceweekend->id, "Delete")); ?></td>
             </tr>
         <?php endforeach; ?>
         </tbody>
@@ -61,10 +63,10 @@
     <div class="col-sm-11">
         <nav>
             <ul class="pagination">
-                <li><?php echo $this->tag->linkTo("raceWeekends/search", "First") ?></li>
-                <li><?php echo $this->tag->linkTo("raceWeekends/search?page=" . $page->before, "Previous") ?></li>
-                <li><?php echo $this->tag->linkTo("raceWeekends/search?page=" . $page->next, "Next") ?></li>
-                <li><?php echo $this->tag->linkTo("raceWeekends/search?page=" . $page->last, "Last") ?></li>
+                <li><?php echo $this->tag->linkTo("raceweekends/search", "First") ?></li>
+                <li><?php echo $this->tag->linkTo("raceweekends/search?page=" . $page->before, "Previous") ?></li>
+                <li><?php echo $this->tag->linkTo("raceweekends/search?page=" . $page->next, "Next") ?></li>
+                <li><?php echo $this->tag->linkTo("raceweekends/search?page=" . $page->last, "Last") ?></li>
             </ul>
         </nav>
     </div>

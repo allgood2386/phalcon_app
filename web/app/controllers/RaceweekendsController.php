@@ -108,6 +108,7 @@ class RaceweekendsController extends ControllerBase
         $raceWeekend->location = $this->request->getPost("location");
         $raceWeekend->start = $this->request->getPost("start");
         $raceWeekend->end = $this->request->getPost("end");
+        $raceWeekend->series_id = $this->request->get("series_id");
         
 
         if (!$raceWeekend->save()) {
@@ -159,6 +160,7 @@ class RaceweekendsController extends ControllerBase
         $raceWeekend->location = $this->request->getPost("location");
         $raceWeekend->start = $this->request->getPost("start");
         $raceWeekend->end = $this->request->getPost("end");
+        $raceWeekend->series_id = $this->request->getPost("series_id");
         
 
         if (!$raceWeekend->save()) {
