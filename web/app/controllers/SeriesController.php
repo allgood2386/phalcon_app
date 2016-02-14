@@ -89,9 +89,10 @@ class SeriesController extends ControllerBase
                     "action" => "index"
                 ));
             }
-            $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js');
-            $this->assets->addCss('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css', false);
-            $this->assets->addJs('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js', false);
+            $this->assets
+              ->addJs('//cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment-with-locales.min.js')
+              ->addCss('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css', false)
+              ->addJs('//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js', false);
             $this->view->id = $serie->id;
 
             $this->tag->setDefault("id", $serie->id);

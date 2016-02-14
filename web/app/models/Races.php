@@ -32,6 +32,10 @@ class Races extends \Phalcon\Mvc\Model
      *
      * @return string
      */
+
+    public function initialize() {
+        $this->belongsTo("raceweekends_id", "Raceweekends", "id");
+    }
     public function getSource()
     {
         return 'races';

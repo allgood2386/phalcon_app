@@ -21,6 +21,11 @@ class Raceweekends extends \Phalcon\Mvc\Model
      */
     public $location;
 
+    public function initialize()
+    {
+        $this->belongsTo("series_id", "Series", "id");
+        $this->hasMany("id", "Races", "raceweekends_id");
+    }
     /**
      * Returns table name mapped in the model.
      *
