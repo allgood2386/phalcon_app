@@ -61,7 +61,17 @@
 <div class="form-group">
     <label for="fieldSeriesId" class="col-sm-2 control-label">Series</label>
     <div class="col-sm-10">
-        <?php echo $this->tag->textField(array("series_id", "type" => "number", "class" => "form-control", "id" => "fieldSeriesId")) ?>
+        <?php
+        echo $this->tag->select(
+          array(
+            "series_id",
+            Series::find(array("order" => "name")),
+            "using" => array("id" , "name"),
+            "class" => "form-control",
+            "id" => "fieldSeriesId"
+          )
+        );
+        ?>
     </div>
 </div>
 

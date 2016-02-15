@@ -40,12 +40,19 @@
         <?php foreach ($page->items as $raceweekend): ?>
             <tr>
                 <td><?php echo $raceweekend->id ?></td>
-            <td><?php echo $raceweekend->name ?></td>
-            <td><?php echo $raceweekend->location ?></td>
-            <td><?php echo $raceweekend->start ?></td>
-            <td><?php echo $raceweekend->end ?></td>
-            <td><?php echo $raceweekend->series_id ?></td>
-
+                <td>
+                    <?php
+                        echo $this->tag->linkTo(
+                            array("raceweekends/" . $raceweekend->id,
+                            $raceweekend->name
+                            )
+                        )
+                    ?>
+                </td>
+                <td><?php echo $raceweekend->location ?></td>
+                <td><?php echo $raceweekend->start ?></td>
+                <td><?php echo $raceweekend->end ?></td>
+                <td><?php echo $raceweekend->series_id ?></td>
                 <td><?php echo $this->tag->linkTo(array("raceweekends/edit/" . $raceweekend->id, "Edit")); ?></td>
                 <td><?php echo $this->tag->linkTo(array("raceweekends/delete/" . $raceweekend->id, "Delete")); ?></td>
             </tr>

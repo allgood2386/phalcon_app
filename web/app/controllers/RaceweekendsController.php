@@ -70,6 +70,8 @@ class RaceweekendsController extends ControllerBase
         if (!$this->request->isPost()) {
 
             $raceWeekend = Raceweekends::findFirstByid($id);
+            $series = Series::findFirst(array("id" => $raceWeekend->series_id));
+
             if (!$raceWeekend) {
                 $this->flash->error("raceWeekend was not found");
 
@@ -86,7 +88,7 @@ class RaceweekendsController extends ControllerBase
             $this->tag->setDefault("location", $raceWeekend->location);
             $this->tag->setDefault("start", $raceWeekend->start);
             $this->tag->setDefault("end", $raceWeekend->end);
-            
+            $this->tag->setDefault("series_id", $series->id);
         }
     }
 
@@ -161,7 +163,6 @@ class RaceweekendsController extends ControllerBase
         $raceWeekend->start = $this->request->getPost("start");
         $raceWeekend->end = $this->request->getPost("end");
         $raceWeekend->series_id = $this->request->getPost("series_id");
-        
 
         if (!$raceWeekend->save()) {
 
@@ -219,6 +220,12 @@ class RaceweekendsController extends ControllerBase
             "controller" => "raceWeekends",
             "action" => "index"
         ));
+    }
+
+    public function showAction($id)
+    {
+        $raceweekend = Raceweekends::findFirst(array('id' => $id));
+        $this->view->raceweekend = $raceweekend;
     }
 
 }

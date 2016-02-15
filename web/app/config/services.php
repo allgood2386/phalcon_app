@@ -29,6 +29,18 @@ $di->setShared('url', function () use ($config) {
 });
 
 /**
+ * Add routing.
+ */
+$di->set(
+  'router',
+  function () {
+      require __DIR__.'/router.php';
+
+      return $router;
+  }
+);
+
+/**
  * Setting up the view component
  */
 $di->setShared('view', function () use ($config) {
