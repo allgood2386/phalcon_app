@@ -1,0 +1,23 @@
+<h1><?php print $raceweekend->name?></h1>
+<div>
+  <label for="location">Location: </label>
+  <span name="location"><?php print $raceweekend->location?></span>
+</div>
+<div>
+  <label for="start">Start: </label>
+  <span name="start"><?php print $raceweekend->start?></span>
+</div>
+<div>
+  <label for="end">End: </label>
+  <span name="end"><?php print $raceweekend->end?></span>
+</div>
+<div>
+  <ul class="pager">
+    <li class="previous"><?php echo $this->tag->linkTo(array("raceweekends", "Back")) ?></li>
+    <li class="next">
+      <?php echo $this->tag->linkTo(
+        array("raceweekends/edit/" . $raceweekend->id, "Edit"))
+      ?>
+    </li>
+  </ul>
+</div>
